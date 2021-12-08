@@ -1,0 +1,119 @@
+//------------------ STYLE ------------------
+
+=neoned_after
+	content: ''
+	display: block
+	position: absolute
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	background: $secondarycolor
+	opacity: .3
+	filter: blur(5px)
+  z-index: -1
+
+=neoned_before
+	content: ''
+	display: block
+	position: absolute
+	top: -.8em
+	right: -5em
+	width: 110%
+	height: 200%
+	background: $secondarycolor
+	opacity: .35
+	filter: blur(35px)
+  z-index: -1
+
+//----------- FLEX CONFIGURATION ------------
+
+=row-flex
+	display: flex
+	flex-flow: row nowrap
+	align-items: center
+
+=column-flex
+	display: flex
+	flex-flow: column nowrap
+	align-items: center
+
+
+//----------- HOVER ANIMATION ------------
+
+=hover_font-size
+	opacity: .7
+	font-size: 1.5em
+	+transition_default
+
+=hover_scale_opacity
+	opacity: .7
+	+transform(scale(1.1,1.1))
+	+transition_default
+
+=hover_scale
+	+transform(scale(1.1,1.1))
+	+transition_default
+
+=hover_opacity
+	opacity: .5
+	+transition_default
+
+=hover_scale_rotation
+	+transform(scale(1.3,1.3) rotate(180deg))
+	+transition_default
+
+
+//----------- PREFIXES ------------------
+
+=prefix($property, $val)
+	#{$property}: $val
+	-webkit-#{$property}: $val
+	-moz-#{$property}: $val
+	-ms-#{$property}: $val
+	-o-#{$property}: $val
+
+
+//----------- GENERAL MIXINS ------------
+
+=box-sizing ($box)
+	-webkit-box-sizing: $box
+	-moz-box-sizing: $box
+	-ms-box-sizing: $box
+	-o-box-sizing: $box
+	box-sizing: $box
+
+=transition ($value)
+	transition: $value
+	-webkit-transition: $value
+	-moz-transition: $value
+	-ms-transition: $value
+	-o-transition: $value
+
+=transition_default
+	transition: (all 250ms cubic-bezier(0.4, 0, 0.2, 1))
+	-webkit-transition: (all 250ms cubic-bezier(0.4, 0, 0.2, 1))
+	-moz-transition: (all 250ms cubic-bezier(0.4, 0, 0.2, 1))
+	-ms-transition: (all 250ms cubic-bezier(0.4, 0, 0.2, 1))
+	-o-transition: (all 250ms cubic-bezier(0.4, 0, 0.2, 1))
+
+=transform ($value)
+	-webkit-transform: $value
+	-moz-transform: $value
+	-ms-transform: $value
+	-o-transform: $value
+	transform: $value
+
+=transform-origin ($value)
+	-webkit-transform-origin: $value
+	-moz-transform-origin: $value
+	-ms-transform-origin: $value
+	-o-transform-origin: $value
+	transform-origin: $value
+
+=box-shadow ($box)
+	-webkit-box-shadow: $box
+	-moz-box-shadow: $box
+	-ms-box-shadow: $box
+	-o-box-shadow: $box
+	box-shadow: $box

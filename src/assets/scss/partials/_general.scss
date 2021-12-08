@@ -1,0 +1,109 @@
+#root * {
+  font-family: Courier New, Courier, monospace;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+a,
+button {
+  text-decoration: none !important;
+}
+
+#root .wrapper {
+  height: 80%;
+  @include column-flex;
+  justify-content: center;
+}
+
+@media (max-width: 548px) {
+  #root .wrapper {
+    height: 85%;
+  }
+}
+
+
+/*.classD {
+  .next2,
+  .actions .btn-success.next2 {
+    display: none !important;
+  }
+  .next2-w {
+    display: none !important;
+  }
+}
+
+.next2-w {
+  display: none !important;
+}
+
+.classLC {
+  .next2 {
+    display: none !important;
+  }
+}
+
+.classLC:not(.classD) {
+  .next2-w {
+    display: block !important;
+  }
+}
+*/
+
+#screen3 {
+  .next3, .next3-w {
+    display: none !important;
+  }
+}
+
+#screen2 {
+  .next2, .next2-w {
+    display: none !important;
+  }
+}
+
+#screen1 .btn-success {
+  // display: none;
+  pointer-events: none;
+}
+
+code {
+  font-size: 18px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+.codeInput {
+  background: none;
+  border: none;
+  border-bottom: 3px solid white;
+  color: white;
+  font-size: 2em;
+  width: 3em;
+  height: 1.2em;
+  padding: 0px;
+  text-align: center;
+  margin: auto;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.codeInput:disabled {
+  color: grey;
+  border-bottom-color: grey;
+  cursor: not-allowed;
+}
+

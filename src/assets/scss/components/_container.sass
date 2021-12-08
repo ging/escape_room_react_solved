@@ -1,0 +1,87 @@
+.container
+  width: 100%
+  margin: 0
+  padding: 0
+  height: 80%
+  +column-flex
+  justify-content: center
+  &.main-container
+    .row
+      justify-content: center
+      width: 100%
+      height: 100%
+      .col
+        height: 100%
+        .inside
+          @include column-flex
+          align-items: unset
+          justify-content: space-between
+          height: 85%
+  p
+    font-size: 1.3em
+    display: inline
+    color: $maincolor
+    opacity: .8
+  .mainTitle
+    +row-flex
+    h1
+      font-family: 'Press Start 2P'
+      font-size: 2.5em
+      margin-left: 1em
+      margin-top: .9em
+    img
+      width: 100%
+      margin-bottom: 4em
+  .actions
+    +row-flex
+    justify-content: space-between
+    margin-top: 1em
+    &.actions_right
+      justify-content: flex-end
+    &.actions_left
+      justify-content: flex-start
+    button
+      &.btn
+        display: inline-block
+        font-family: 'Press Start 2P'
+        font-size: 1em
+        font-weight: bold
+        padding: .5em 1.8em
+        border-radius: 2em
+        margin: 0 auto
+        margin-top: .5em
+        text-transform: lowercase
+        +transition_default
+        &:hover
+          +hover_scale
+          +transition_default
+        &.secondary
+          background: $background
+          color: $red
+          border: 2px solid $red
+          box-shadow: 0 0 0 $red
+          &:hover
+            background: $red
+            color: $background
+            border: 2px solid $red
+            box-shadow: 0 0 30px $red
+        &.btn-success
+          background: $background
+          color: $secondarycolor
+          border: 2px solid $secondarycolor
+          box-shadow: 0 0 0 $secondarycolor
+          &:hover
+            background: $secondarycolor
+            color: $background
+            border: 2px solid $secondarycolor
+            box-shadow: 0 0 30px $secondarycolor
+
+
+
+@media (max-width: 767px)
+  .container
+    &.main-container
+      .row
+        .col
+          .inside
+            height: 95%

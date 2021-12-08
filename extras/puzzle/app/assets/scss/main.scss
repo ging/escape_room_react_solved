@@ -1,0 +1,261 @@
+
+html {
+  background-color: #e3c9f7 !important;
+
+}
+html, body, #root, #root > div {
+  height: 100%;
+  background-color: #e3c9f7 !important;
+  
+}
+
+//App component
+#container{
+
+}
+
+.player{
+  display: none
+}
+
+.title{
+  letter-spacing: 4px;
+  text-align: center;
+  color: black;
+  font-family: 'Roboto', cursive;
+  padding-bottom: 45px;
+  font-size: 3.5em;
+
+}
+
+.titlePrint{
+  display:none;
+}
+
+//Final Message component
+.endImage{
+  width: 40%;
+  height: auto;
+  display: block;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.endMessage{
+  font-size: 16px;
+  font-family: 'Roboto', cursive;
+}
+
+.endTitle{
+  font-size: 28px !important;
+  font-family: 'Roboto', cursive;
+}
+
+// Initial message component
+.initialImage{
+  width: 300px;
+  height: 200px;
+  display: block;
+  margin: auto;
+  border-radius: 0;
+}
+
+.textTitleInstructions{
+  font-size: 25px;
+  margin: 15px;
+}
+
+a{
+  color: black !important;
+}
+.textEscapeInstructions{
+  font-size: 45px !important;
+  font-family: 'Roboto', cursive;
+
+}
+
+.playButton{
+  width: 50%;
+  margin: auto !important;
+}
+.textPlayButton{
+  font-size: 20px;
+  font-family: 'Roboto', cursive;
+}
+.textStory{
+  font-size: 20px;
+  text-align: justify;
+  margin: 15px;
+}
+.cards{
+  // let styleCards = {maxWidth:"70px", margin:"auto", marginTop:"10px"};
+  max-width: 70px;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.cont{
+  display:block;
+  text-align: center;
+  margin: 10px;
+}
+
+//Timer component
+.timePannel{
+  font-size: 2.5vw;
+  font-family: 'Roboto', cursive;
+  margin:auto;
+}
+
+.timeInstructions{
+  font-size: 20px;
+  font-family: 'Roboto', cursive;
+  margin: auto !important;
+}
+//NavBar component
+.titleEscapeNavBar{
+  // style={{fontFamily:"Roboto", textAlign:"center", width:"50%", fontSize:"3.5vw"}}
+  font-family: 'Roboto', cursive;
+  text-align: left;
+  width: 50%;
+  font-size: 3.5vw;
+  color: #7248B6;
+
+}
+.icon:hover{
+  transform: scale(1.2);
+}
+.icon{
+  -webkit-transition:all 0.5s ease; /* Safari y Chrome */
+  -moz-transition:all .5s ease; /* Firefox */
+  -o-transition:all .5s ease; /* IE 9 */
+  -ms-transition:all .5s ease; /* Opera */
+}
+
+//Puzzle component
+.extraPiece:hover{
+  transform: translateY(-30px);
+  z-index: 1;
+}
+.extraPiece{
+  margin:0.15vw;
+  width:auto;
+  -webkit-transition:all 1s ease; /* Safari y Chrome */
+  -moz-transition:all .9s ease; /* Firefox */
+  -o-transition:all .9s ease; /* IE 9 */
+  -ms-transition:all .9s ease; /* Opera */
+}
+
+.imgPieza:hover{
+}
+
+.tablePuzzle{
+  padding: 1px;
+  border-spacing: 10px;
+  margin: auto;
+  margin-bottom: 50px;
+}
+
+.tablePuzzle td{
+  padding: 3px;
+}
+
+.piecePrint{
+  display:none;
+}
+
+.puzzleArea{
+  // style={{display:"flex", alignItems:"center", justifyContent:"center", maxWidth:"100%", marginTop:"2vw"}}
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  margin-top: 1vw;
+}
+
+
+// Print (not displayed in web view)
+.tablePrint{
+  display: none;
+}
+.msgPrint{
+  display: none;
+}
+.print{
+  visibility:hidden;
+}
+
+.printInstructions{
+  display:none;
+}
+
+.extra td{
+  padding: 10px;
+
+}
+
+.fakeAreaContainer{
+  
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  width: 95vw;
+  margin-bottom: 50px;
+  margin-right: auto;
+  margin-left: auto;
+
+}
+
+
+// RESCORM
+div.header_wrapper img {
+  width: 71px;
+  height: 50px;
+  float: left;
+  margin-top: 8px;
+}
+
+#heading {
+  font-size: 30px;
+  margin: 8px;
+}
+
+#tracking{
+  font-size: 18px;
+  color: black;
+  margin: 8px;
+}
+
+#tracking span {
+  margin-right: 40px;
+}
+
+#logged_user {
+  font-size: 18px;
+  color: gray;
+  margin: 8px;
+}
+
+
+@import "print.scss";
+
+.react-card-front {
+  div {
+  box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+  }
+}
+
+.modal-header, .modal-content {
+  border-radius: 0 !important;
+}
+
+.modal-header, .modal-footer {
+  border-bottom: none !important;
+  border-top: none !important;
+}

@@ -1,0 +1,191 @@
+import React, {Fragment} from 'react';
+import '../assets/scss/main.scss';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import ReactCardFlip from 'react-card-flip';
+
+export default class Piece extends React.Component {
+
+  constructor(){
+    super();
+    this.state = {
+      isFlipped:false,
+      backToFront:"1.5",
+      frontToBack:"1.5",
+      anchoVentana:window.innerWidth,
+    };
+    this.handleClick = this.handleClick.bind(this);
+    this.updateDimensions = this.updateDimensions.bind(this);
+  }
+
+  handleClick(e){
+    e.preventDefault();
+    if(this.props.conf.reverseMode === true){
+      this.setState({
+        backToFront:"1.5",
+        frontToBack:"1.5",
+      });
+      this.setState(prevState => ({isFlipped:!prevState.isFlipped}));
+      setTimeout(()=>{
+        this.props.darVuelta(this.props.row, this.props.column);
+        this.setState({
+          backToFront:0,
+        });
+        this.setState(prevState => ({isFlipped:!prevState.isFlipped}));},
+      1000);
+    }
+
+  }
+
+  render(){
+
+    // Board dimensions
+
+    let altoImg, anchoImg;
+    const relacion = 1.5; // Relacion entre ancho y alto de la imagen
+
+    anchoImg = this.props.extraArea ? 0.16 * (this.state.anchoVentana) : 0.22 * (this.state.anchoVentana);
+    altoImg = anchoImg * relacion;
+
+    // Container size
+    let anchoContenedor = anchoImg / (this.props.conf.M);
+    let altoContenedor = altoImg / (this.props.conf.N);
+
+    // Border piece color
+    let rowPieza = this.props.row;
+    let colPieza = this.props.column;
+
+    let rowSelec1 = this.props.piezasSeleccionadas[0][0];
+    let colSelec1 = this.props.piezasSeleccionadas[0][1];
+    let rowSelec2 = this.props.piezasSeleccionadas[1][0];
+    let colSelec2 = this.props.piezasSeleccionadas[1][1];
+
+    let borde = "3px solid transparent";
+    let shadow = "";
+    let w = anchoContenedor;
+    let h = altoContenedor;
+    if((rowPieza === rowSelec1 && colPieza === colSelec1)
+        || (rowPieza === rowSelec2 && colPieza === colSelec2)){
+      borde = "3px solid #7248B6";
+    }
+
+    if(rowSelec1 !== -1 && rowSelec2 !== -1){
+      borde = "3px solid transparent";
+    }
+
+    // Piece cursor
+    let cursor = "";
+    if(this.props.lupa){
+      cursor = "zoom-in";
+      console.log("Cursor: " + cursor);
+    }
+
+    // Front position
+    let imgPieza = (
+      <img
+        style={{
+          overflow:"hidden",
+          margin:"auto",
+          width:w,
+          height:h,
+          border:shadow,
+        }}
+        src={this.props.imagen}
+        onClick={()=>{
+          if(this.props.lupa){
+            this.props.zoomImage(this.props.imagen, anchoContenedor, altoContenedor, this.props.extraArea);
+          }
+          else {
+            this.props.seleccionarPieza(this.props.row, this.props.column);
+          }
+        }}
+
+        alt={"Imagen de pieza"}/>
+    );
+
+    // Imagen de pieza en posición de reverso
+    let imgPiezaRev = (
+      <img
+        style={{
+          margin:"auto",
+          overflow:"hidden",
+          width:anchoContenedor,
+          height:altoContenedor,
+
+        }}
+        src={this.props.imagenRev}
+        onClick={()=>{
+          if(this.props.lupa){
+            this.props.zoomImage(this.props.imagen);
+          }
+          else {
+            this.props.seleccionarPieza(this.props.row, this.props.column);
+          } }}
+
+        alt={"Imagen de pieza"}
+      />
+    );
+
+    let cardFlip = (
+
+      <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="horizontal" flipSpeedBackToFront={this.state.backToFront} flipSpeedFrontToBack={this.state.frontToBack}>
+
+        {/* Contenedor de la pieza frontal*/}
+
+        <div
+          onDoubleClick={this.handleClick}
+          style={{
+            width:anchoContenedor + "px",
+            height:altoContenedor + "px",
+            overflow:"hidden",
+            position:"relative",
+            border:borde,
+            borderRadius:"0px",
+            cursor:cursor,
+            opacity:this.props.extraArea ? 0.7 : 1,
+
+          }}
+        >
+
+          {imgPieza}
+        </div>
+
+        {/* Contenedor de la pieza trasera*/}
+        <div
+          onDoubleClick={this.handleClick}
+          style={{
+            width:anchoContenedor + "px",
+            height:altoContenedor + "px",
+            overflow:"hidden",
+            position:"relative",
+            border:borde,
+            borderRadius:"0px",
+            cursor:cursor,
+          }}
+        >
+          {imgPiezaRev}
+        </div>
+
+      </ReactCardFlip>
+    );
+
+    return (
+      <Fragment>
+
+        {cardFlip}
+
+      </Fragment>
+
+    );
+  }
+
+  updateDimensions(){
+    this.setState({anchoVentana:window.innerWidth});
+  }
+  componentDidMount(){
+    window.addEventListener('resize', this.updateDimensions);
+  }
+  componentWillUnmount(){
+    window.removeEventListener('resize', this.updateDimensions);
+  }
+
+}

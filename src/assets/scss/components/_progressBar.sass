@@ -1,0 +1,15 @@
+.progress-wrapper
+  position: relative
+  width: 70%
+  left: 50%
+  +transform(translate(-50%))
+  margin: 20px
+  .progress
+    box-shadow: 0 0 10px $secondarycolor
+    height: 0.5rem
+    &:after
+      +neoned_after
+    &:before
+      +neoned_before
+    .progress-bar
+      background-color: $secondarycolor
