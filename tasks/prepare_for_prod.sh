@@ -33,6 +33,6 @@ done
 
 cd production
 git init
-git remote add origin https://github.com/ging/escape_room_iweb_2020.git
+git remote add origin https://github.com/ging/iweb_escape_room_2021.git
 git add .
 git commit -am "First commit"
