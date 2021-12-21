@@ -21,13 +21,14 @@ export default class Screen4 extends React.Component {
           <p>
             {"QWhvcmEgcXVlIHRpZW5lcyBlbCBj82RpZ28gZGViZXMgZW52aWFybG8gZW4gZm9ybWEgZGUgcGV0aWNp824gYXPtbmNyb25hIFBPU1QgYWwgbfNkdWxvIGRlIGNvbnRyb2wgZGUgdGVtcGVyYXR1cmEgZGVzZGUgbGEgY29uc29sYSBkZWwgbmF2ZWdhZG9yIChlbiBlc3RhIHBlc3Rh8WEpLiBMYSBVUkwgZXM=".unhashCode()}
           </p>
-          <code>{"aHR0cDovL2JvbWIudXBtLmVzL3RlbXBlcmF0dXJl".unhashCode()}</code> 
-          <p>enviando en el body un JSON como el que sigue   <a href="https://developer.mozilla.org/es/docs/Web/API/Fetch_API/Utilizando_Fetch">
+          <code>{"aHR0cDovL2JvbWIudXBtLmVzL3RlbXBlcmF0dXJl".unhashCode()}</code>
+          <p>enviando en el body un JSON como el que sigue
+          <a href="https://developer.mozilla.org/es/docs/Web/API/Fetch_API/Utilizando_Fetch">
              (Ayuda)
-          </a> 
+          </a>
           :</p>
-            
-          <code> {` {  "action": "RESET" } `} </code>{" "}
+
+          <code> {` {  "action": "RESET", "code": "XXXX (código obtenido en el apartado anterior)" } `} </code>{" "}
           <div className="codeInputContainer" >
             <input type="number" className="codeInput" min="0" max="9999" maxLength="4" autoFocus id="inputTemperature" placeholder="****"/>
           </div>
@@ -36,7 +37,7 @@ export default class Screen4 extends React.Component {
           <button className="btn secondary">ANTERIOR</button>
         </Link>
       </div>
-        
+
         <ProgressBar progress={100} />
       </div>
     );
