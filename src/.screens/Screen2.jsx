@@ -27,6 +27,9 @@ export default class Screen2 extends React.Component {
           স্প্যানিশের পরিবর্তে এটি ইংরেজিতে অনুবাদ করুন।
         </p>
         <BombComponentList components={this.props.components} turnOffComponent={this.props.deac}/>
+        <div>Solo hay un orden de desactivación correcto y es importante seguirlo. Te lo dirá el siguiente programa:
+          <a href="/ordendesactivacion.js" target="_blank" rel="noreferrer">Abrir Ordendesactivacion.js</a>
+        </div>
         <p className="next2">
           {"oUhhcyBkZXNhY3RpdmFkbyB0b2RvcyBsb3MgY29tcG9uZW50ZXMgZGUgbGEgYm9tYmEh".unhashCode()}
         </p>

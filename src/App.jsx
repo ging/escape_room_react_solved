@@ -37,19 +37,10 @@ export default function App() {
       status: true
     }
   ]);
-  const [lc, setLc] = useState([]);
-  
 
   const deac = (index) => {
     let newComponents = components.map((component, i)=>{return {...component, status: index === i? !component.status : component.status}})
-    setComponents(newComponents);
-    let newLc;
-		if(index === -1 ){
-			newLc = [...lc, index];
-		} else {
-		  newLc = [...lc.slice(0, index), ...lc.slice(index+1)]
-    }
-    setLc(newLc);
+    setComponents(newComponents);    
   }
 
     const classD = components.filter(e => e.status).length > 0;
@@ -57,9 +48,9 @@ export default function App() {
       window.routerCallback(match);
       try {
         let index = match.params.index ? parseInt(match.params.index.unhashCode()) : 1;
-        return React.createElement(screensAvailable[index - 1], { key: index, components, lc,  deac });
+        return React.createElement(screensAvailable[index - 1], { key: index, components, deac });
       } catch(e) {
-        return React.createElement(screensAvailable[0], { key: 1, components, lc,  deac });
+        return React.createElement(screensAvailable[0], { key: 1, components, deac });
       }
     };
 
