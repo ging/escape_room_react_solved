@@ -43,7 +43,7 @@ let GLOBAL_CONFIG_DEVELOPMENT = {
 
   // Escapp configuraciones
   escapp:{
-    endpoint:"https://escape.dit.upm.es/api/escapeRooms/340",
+    endpoint:"https://escape.dit.upm.es/api/escapeRooms/353",
     localStorageKey:"ESCAPP_Puzzle",
     imagesPath:"assets/images/",
     I18n:{
