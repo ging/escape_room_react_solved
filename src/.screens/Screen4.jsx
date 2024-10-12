@@ -10,7 +10,7 @@
 
 
 import React from "react";
-import propTypes from "prop-types";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import ProgressBar from "../ProgressBar";
 
@@ -49,20 +49,20 @@ Screen4.propTypes = {
   /**
    * Components of the bomb
    */
-  components: propTypes.arrayOf(
-    propTypes.shape({
+  components: PropTypes.arrayOf(
+    PropTypes.shape({
       /**
        * Current status of the switch
        */
-      status: propTypes.bool,
+      status: PropTypes.bool,
       /**
        * Name of the component to deactivate
        */
-      id: propTypes.String
+      id: PropTypes.string
     })
   ),
   /**
    * Function to turn off the switch
    */
-  deac: propTypes.func,
+  deac: PropTypes.func,
 };

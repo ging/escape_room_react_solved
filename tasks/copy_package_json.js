@@ -1,14 +1,14 @@
 #!/usr/bin/env node
  
- var fs = require('fs')
+import fs from 'fs';
+
  var newPackageJson = {
      "name": "escape-room",
      "scripts": {
         "start": "cross-cat asciiart",
-        "bomb":  "react-scripts start",
-        "build": "react-scripts build",
-        "test":  "react-scripts test",
-        "eject": "react-scripts eject"
+        "dev": "cross-cat asciiart",
+        "bomb": "vite",
+        "build": "vite build"
      }
  }
 
@@ -22,6 +22,8 @@
          oldJson.scripts = newPackageJson.scripts;
          oldJson.name = newPackageJson.name;
          oldJson.devDependencies = undefined;
+         //remove canvas from dependencies, because it is not needed in production
+        delete oldJson.dependencies['canvas'];
          fs.writeFile('./production/package.json', JSON.stringify(oldJson, null, 2), err => {
              if (err) {
                  console.log('Error writing package.json', err)

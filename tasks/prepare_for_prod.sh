@@ -11,7 +11,7 @@ do
 done
 
 ### Copy app files
-for file in asciiart .gitignore
+for file in asciiart .gitignore index.html eslint.config.js vite.config.js
 do
     cp $file production
 done
@@ -31,8 +31,8 @@ do
    rm aux
 done
 
-cd production
-git init
-git remote add origin https://github.com/ging/iweb_escape_room_2021.git
-git add .
-git commit -am "First commit"
+#cd production
+#git init
+#git remote add origin https://github.com/ging/iweb_escape_room_2021.git
+#git add .
+#git commit -am "First commit"

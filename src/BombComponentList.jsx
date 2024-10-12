@@ -27,7 +27,7 @@ BombComponentList.propTypes = {
       /**
        * Name of the component to deactivate
        */
-      id: PropTypes.String
+      id: PropTypes.string
     })
   ),
   /**

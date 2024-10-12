@@ -38,9 +38,9 @@ export default function App() {
     }
   ]);
 
-  const deac = (index) => {
+  const deac = (index, event) => {
     let newComponents = components.map((component, i)=>{return {...component, status: index === i? !component.status : component.status}})
-    setComponents(newComponents);    
+    setComponents(newComponents);
   }
 
     const classD = components.filter(e => e.status).length > 0;
@@ -48,9 +48,9 @@ export default function App() {
       window.routerCallback(match);
       try {
         let index = match.params.index ? parseInt(match.params.index.unhashCode()) : 1;
-        return React.createElement(screensAvailable[index - 1], { key: index, components, deac });
+        return React.createElement(screensAvailable[index - 1], { key: index, components: components, deac: deac });
       } catch(e) {
-        return React.createElement(screensAvailable[0], { key: 1, components, deac });
+        return React.createElement(screensAvailable[0], { key: 1, components: components, deac: deac });
       }
     };
 
