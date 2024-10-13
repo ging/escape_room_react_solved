@@ -1,7 +1,8 @@
 //----------- MAIN COLORS ------------
+@use "sass:color"
 
 $background: #0c0e14
-$darkbg: darken($background, 5%)
+$darkbg: color.adjust($background, $lightness: -5%)
 $darkgrey: #282828
 $maincolor: #fff
 $secondarycolor: #39FF14
